@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Marks Predictor</title>
+</head>
+<body style="text-align:center; font-family:Arial;">
+
+    <h1>📊 Student Marks Predictor</h1>
+
+    <form method="POST">
+        <input type="number" name="hours" placeholder="Enter study hours" required>
+        <br><br>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+        <h2>Predicted Marks: {{ prediction }}</h2>
+    {% endif %}
+
+</body>
+</html>

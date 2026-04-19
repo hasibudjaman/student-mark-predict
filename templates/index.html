@@ -2,20 +2,71 @@
 <html>
 <head>
     <title>Student Marks Predictor</title>
-</head>
-<body style="text-align:center; font-family:Arial;">
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f8;
+            text-align: center;
+        }
 
-    <h1>📊 Student Marks Predictor</h1>
+        .container {
+            margin-top: 100px;
+            background: white;
+            padding: 30px;
+            width: 350px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        input {
+            padding: 10px;
+            width: 80%;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>📊 Student Marks Predictor</h2>
 
     <form method="POST">
         <input type="number" name="hours" placeholder="Enter study hours" required>
-        <br><br>
+        <br>
         <button type="submit">Predict</button>
     </form>
 
     {% if prediction %}
-        <h2>Predicted Marks: {{ prediction }}</h2>
+    <div class="result">
+        🎯 Predicted Marks: {{ prediction }}
+    </div>
     {% endif %}
+</div>
 
 </body>
 </html>

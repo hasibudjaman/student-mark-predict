@@ -10,9 +10,18 @@ def index():
     prediction = None
 
     if request.method == "POST":
-        hours = float(request.form["hours"])
-        pred = model.predict([[hours]])
-        prediction = round(pred[0], 2)
+        try:
+            hours = float(request.form["hours"])
+
+            pred = model.predict([[hours]])[0]
+
+            # 🔥 LIMIT FIX
+            pred = max(0, min(100, pred))
+
+            prediction = round(pred, 2)
+
+        except:
+            prediction = "Invalid input!"
 
     return render_template("index.html", prediction=prediction)
 
